@@ -6,5 +6,5 @@ properties([
 ])
 
 node {
-   print "Im the Job!"
+   print "Im the branch Job!"
 }
