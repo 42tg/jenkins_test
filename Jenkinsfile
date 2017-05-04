@@ -7,4 +7,5 @@ properties([
 
 node {
    print "Im the Job!"
+   build '42tg-second'
 }
