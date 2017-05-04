@@ -11,6 +11,6 @@ node {
     }
     stage('other')
     {
-        build(job: '42tg-second', hello : 'I was started by Master')
+        build(job: '42tg-second', parameters : [hello : 'I was started by Master'])
     }
 }
