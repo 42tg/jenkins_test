@@ -6,6 +6,11 @@ properties([
 ])
 
 node {
-   print "Im the Job!"
-   build '42tg-second'
+    stage('me'){ 
+        print "Im the Job!"
+    }
+    stage('other')
+    {
+        build '42tg-second'
+    }
 }
