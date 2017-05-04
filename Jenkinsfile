@@ -11,5 +11,5 @@ properties([
 node {
    print "Im the branch Job!"
    
-   print "And know some Parameters: ${hello}"
+   print "And know some Parameters: ${env.hello}"
 }
