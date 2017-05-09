@@ -9,7 +9,7 @@ node {
     stage('me'){ 
         print "Im the Job!"
     }
-    input 'Ready to go?'
+
     stage('other')
     {
         build(job: '42tg-second', parameters : [hello : 'I was started by Master'])
