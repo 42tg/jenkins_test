@@ -6,18 +6,17 @@ properties([
 ])
 
 node {
-    stage('me'){ 
+    stage('success'){ 
         print "Im the Job!"
     }
-
+    stage('fail') {
+      print "i Fail"
+       bat "exit 1"
+    }
+   
     stage('other')
     {
-      if (result.equals("SUCCESS")) {
-         stage 'deploy'
-         print "Test" + result
-      } else {
-      currentBuild.result = e2e.result
-      // but continue
-      }
+      print "i will build anyway"
     }
+   
 }
