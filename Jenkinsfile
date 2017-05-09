@@ -12,10 +12,9 @@ node {
 
     stage('other')
     {
-        build(job: '42tg-second', parameters : [hello : 'I was started by Master'])
-       if (result.equals("SUCCESS")) {
+      if (result.equals("SUCCESS")) {
          stage 'deploy'
-         print "Test"
+         print "Test" + result
       } else {
       currentBuild.result = e2e.result
       // but continue
