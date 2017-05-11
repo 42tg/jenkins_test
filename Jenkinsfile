@@ -5,9 +5,9 @@ properties([
    ])
 ])
 // Get all Causes for the current build
-def causes = currentBuild.rawBuild.getCauses()
+def causes = currentBuild.rawBuild.getCauses().properties
 
-print causes.getShortDescription();
+print causes
 node {
     stage('success'){ 
         print "Im the Job!"
