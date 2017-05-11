@@ -29,7 +29,7 @@ def getCause(){
    def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
    print specificCause.getShortDescription()
    for(entry in causes) {
-      def hallo = entry.hashCode()
+      def hallo = entry.getShortDescription()
       print hallo
    }
 }
