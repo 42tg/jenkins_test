@@ -10,7 +10,7 @@ def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCaus
 
 print specificCause.getShortDescription()
 
-for(Cause entry : causes) {
+for(entry : causes) {
    print entry.getShortDescription();
 }
 node {
