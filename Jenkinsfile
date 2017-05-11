@@ -5,7 +5,7 @@ properties([
    ])
 ])
 // Get all Causes for the current build
-def causes = currentBuild.rawBuild.getCauses().properties
+def causes = currentBuild.rawBuild.getCause().properties
 
 print causes
 node {
