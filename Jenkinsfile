@@ -1,6 +1,6 @@
 properties([					
    pipelineTriggers([
-      //cron('H H/2 * * *'),
+      cron('H/5 * * * *'), //ever five minutes
       pollSCM('''H 9 7-13 1 1''')
    ])
 ])
