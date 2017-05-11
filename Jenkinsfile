@@ -9,7 +9,7 @@ def causes = currentBuild.rawBuild.getCauses()
 def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
 
 print specificCause.getShortDescription()
-
+@NonCPS
 for(entry in causes) {
    def hallo = entry.hashCode()
    print hallo
