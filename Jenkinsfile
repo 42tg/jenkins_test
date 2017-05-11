@@ -4,7 +4,9 @@ properties([
       pollSCM('''H 9 7-13 1 1''')
    ])
 ])
-
+// Get all Causes for the current build
+def causes = currentBuild.rawBuild.getCauses()
+print causes;
 node {
     stage('success'){ 
         print "Im the Job!"
