@@ -4,16 +4,8 @@ properties([
       pollSCM('''H 9 7-13 1 1''')
    ])
 ])
-// Get all Causes for the current build
-def causes = currentBuild.rawBuild.getCauses()
-def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
+getCause()
 
-print specificCause.getShortDescription()
-@NonCPS
-for(entry in causes) {
-   def hallo = entry.hashCode()
-   print hallo
-}
 node {
     stage('success'){ 
         print "Im the Job!"
@@ -29,3 +21,16 @@ node {
     }
    
 }
+
+@NonCPS
+def getCause(){
+   // Get all Causes for the current build
+   def causes = currentBuild.rawBuild.getCauses()
+   def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
+   print specificCause.getShortDescription()
+   for(entry in causes) {
+      def hallo = entry.hashCode()
+      print hallo
+   }
+}
+   
