@@ -5,9 +5,12 @@ properties([
    ])
 ])
 // Get all Causes for the current build
-def causes = currentBuild.rawBuild.getCause().properties
+def causes = currentBuild.rawBuild.getCauses()
+def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
 
-print causes
+print specificCause.getShortDescription()
+causes.each { key, value -> print value.getShortDescription() }
+
 node {
     stage('success'){ 
         print "Im the Job!"
