@@ -1,6 +1,6 @@
 properties([					
    pipelineTriggers([
-      cron('H/5 * * * *'), //ever five minutes
+      cron('1 * * * *'), //every five minutes
       pollSCM('''H 9 7-13 1 1''')
    ])
 ])
@@ -13,9 +13,6 @@ print specificCause.getShortDescription()
 for(Cause entry : causes) {
    print entry.getShortDescription();
 }
-
-causes.each { key, value -> print value.getShortDescription() }
-
 node {
     stage('success'){ 
         print "Im the Job!"
