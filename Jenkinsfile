@@ -29,8 +29,8 @@ def getCause(){
  
    
    for(entry in causes) {
-      def hallo = entry.getShortDescription()
-      print hallo
+      print entry.getShortDescription()
+      print entry.hashCode()
    }
 }
    
