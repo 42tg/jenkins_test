@@ -26,8 +26,8 @@ node {
 def getCause(){
    // Get all Causes for the current build
    def causes = currentBuild.rawBuild.getCauses()
-   def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause)
-   print specificCause.getShortDescription()
+ 
+   
    for(entry in causes) {
       def hallo = entry.getShortDescription()
       print hallo
