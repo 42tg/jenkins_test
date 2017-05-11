@@ -4,7 +4,7 @@ properties([
       pollSCM('''H 9 7-13 1 1''')
    ])
 ])
-getCause()
+def rebuild = getCause()
 
 node {
     stage('success'){ 
@@ -12,7 +12,9 @@ node {
     }
     stage('fail') {
       print "i Fail"
-       bat "exit 1"
+       if(!rebuild){ 
+         bat "exit 1"
+       }
     }
    
     stage('other')
@@ -26,11 +28,14 @@ node {
 def getCause(){
    // Get all Causes for the current build
    def causes = currentBuild.rawBuild.getCauses()
- 
-   
+   def result = false
    for(entry in causes) {
       print entry.getShortDescription()
-      print entry.hashCode()
+      if( entry.hashCode() == 5)
+      {
+         result = true
+      }
    }
+   return result;
 }
    
