@@ -4,9 +4,33 @@ properties([
       pollSCM('''H 9 7-13 1 1''')
    ])
 ])
+
 def rebuild = getCause()
 
 node {
+   stage ('checkout'){
+   				//checkout changelog: false, scm: scm
+				checkout(
+					[
+						$class: scm.$class,
+						additionalCredentials: scm.additionalCredentials,
+						browser: [
+							$class: 'FishEyeSVN',
+							rootModule: '',
+							url: 'https://jira-sf.starfinanz.de/fisheye/browse/SVN_SFirm/'
+						],
+						excludedCommitMessages: scm.excludedCommitMessages,
+						excludedRegions: scm.excludedRegions,
+						excludedRevprop: scm.excludedRevprop,
+						excludedUsers: 'batch',
+						filterChangelog: scm.filterChangelog ,
+						ignoreDirPropChanges: scm.ignoreDirPropChanges,
+						includedRegions: scm.includedRegions,
+						locations: scm.locations,
+						workspaceUpdater: scm.workspaceUpdater,
+						changelog: false
+					]
+   }
     stage('success'){ 
         print "Im the Job!"
     }
