@@ -12,6 +12,7 @@ print specificCause.getShortDescription()
 
 for(entry in causes) {
    def hallo = entry.getShortDescription();
+   print hallo;
 }
 node {
     stage('success'){ 
