@@ -11,8 +11,8 @@ def specificCause = currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCaus
 print specificCause.getShortDescription()
 
 for(entry in causes) {
-   def hallo = entry.getShortDescription();
-   print hallo;
+   def hallo = entry.hashCode()
+   print hallo
 }
 node {
     stage('success'){ 
